@@ -28,7 +28,7 @@ export const PassingProps = () => {
   return (
     <Container>
       <ObjectComponent object={newObject} />
-      <ListCompont list={newList} />
+      <ListComponent list={newList} />
       <FunctionComponent fun={newFunction} />
       <JSXComponent jsx={newJSX} />
       <ButtonContainer>
@@ -52,27 +52,27 @@ type ListComponentProps = {
   list: number[];
 };
 
-const ListCompont = (props: ListComponentProps) => {
+const ListComponent = (props: ListComponentProps) => {
   console.log("List Component render");
 
   return <div />;
 };
 
-type functionComponentProps = {
+type FunctionComponentProps = {
   fun: () => number;
 };
 
-const FunctionComponent = (props: functionComponentProps) => {
+const FunctionComponent = (props: FunctionComponentProps) => {
   console.log("Function component render");
 
   return <div />;
 };
 
-type jsxComponentProps = {
+type JsxComponentProps = {
   jsx: JSX.Element;
 };
 
-const JSXComponent = (props: jsxComponentProps) => {
+const JSXComponent = (props: JsxComponentProps) => {
   console.log("JSX Component render");
 
   return <div />;

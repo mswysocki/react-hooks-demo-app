@@ -42,53 +42,50 @@ type ObjectComponentProps = {
   object: {};
 };
 
-const ObjectComponent = (props: ObjectComponentProps) => {
+const ObjectComponent = React.memo((props: ObjectComponentProps) => {
   console.log("Object component render");
 
   return (
     <div />
   )
-};
+});
+ObjectComponent.displayName = 'ObjectComponent'
 
 type ListComponentProps = {
   list: number[];
 };
 
-const ListComponent = (props: ListComponentProps) => {
+const ListComponent = React.memo((props: ListComponentProps) => {
   console.log("List Component render");
 
   return <div />;
-};
+})
+ListComponent.displayName = 'ListComponent'
 
-type functionComponentProps = {
+type FunctionComponentProps = {
   fun: () => number;
 };
 
-const FunctionComponent = (props: functionComponentProps) => {
+const FunctionComponent = React.memo((props: FunctionComponentProps) => {
   console.log("Function component render");
 
   return <div />;
-};
+})
+FunctionComponent.displayName = 'FunctionComponent'
 
-type jsxComponentProps = {
+type JsxComponentProps = {
   jsx: JSX.Element;
 };
 
-const JSXComponent = (props: jsxComponentProps) => {
+const JSXComponent = React.memo((props: JsxComponentProps) => {
   console.log("JSX Component render");
 
   return <div />;
-};
+})
+JSXComponent.displayName = 'JSXComponent'
 
 const Container = styled.div``;
 
 const ButtonContainer = styled.div`
   margin: 24px;
 `;
-
-
-//PassingPropsFixed.whyDidYouRender = true
-//ObjectComponent.whyDidYouRender = true
-//ListComponent.whyDidYouRender = true
-//FunctionComponent.whyDidYouRender = true
-JSXComponent.whyDidYouRender = true
