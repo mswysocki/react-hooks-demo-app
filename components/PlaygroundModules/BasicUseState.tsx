@@ -1,13 +1,17 @@
 import styled from "@emotion/styled/";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
 import { Description } from "../Shared/Description";
+import { SectionContainer } from "../Shared/Section";
 
 const descriptionText = ``;
 
 export const BasicUseState = () => {
   console.log("parent render");
   const [count, setCount] = useState(0);
+
+  const totalRenders = useRef(0);
+  totalRenders.current++;
 
   // Increment the count and re-render parent and child
   const incrementCount = useCallback(() => {
@@ -22,13 +26,17 @@ export const BasicUseState = () => {
   return (
     <Container>
       <Description descriptionText={descriptionText} />
-      <ChildComponent count={count} />
-      <ButtonContainer>
-        <Button label={"Increment Count"} onClick={incrementCount} />
-      </ButtonContainer>
-      <ButtonContainer>
-        <Button label={"Same Count"} onClick={keepCountSame} />
-      </ButtonContainer>
+      <SectionContainer>
+        <ChildComponent count={count} />
+        <DisplayCount>{`Parent Render Count: ${totalRenders.current}`}</DisplayCount>
+        <ButtonContainer>
+          <Button label="Increment Count" onClick={incrementCount} />
+        </ButtonContainer>
+
+        <ButtonContainer>
+          <Button label="Same Count" onClick={keepCountSame} />
+        </ButtonContainer>
+      </SectionContainer>
     </Container>
   );
 };
@@ -41,8 +49,15 @@ const ChildComponent = (props: ChildProps) => {
   const { count } = props;
 
   console.log("child render");
+  const totalRenders = useRef(0);
+  totalRenders.current++;
 
-  return <DisplayCount>{count}</DisplayCount>;
+  return (
+    <Container>
+      <DisplayCount>{`Child Render Count: ${totalRenders.current}`}</DisplayCount>
+      <DisplayCount>{`Count: ${count}`}</DisplayCount>
+    </Container>
+  );
 };
 
 const Container = styled.div`

@@ -30,5 +30,7 @@ const DescriptionContainer = styled.div`
     width: 100%;
     height: fit-content;
 
+    font-size: 18px;
+    
     background: ${sectionBackground};
 `

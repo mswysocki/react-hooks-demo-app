@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
 import { Description } from "../Shared/Description";
+import { SectionContainer } from "../Shared/Section";
 
 const descriptionText = ``;
 
@@ -10,10 +11,13 @@ type CountState = {
 };
 
 export const UseStateWithObject = () => {
-  // Don't useState with an object value as it will cause unnecessary Re-renders of the child component.
+  // Avoid useState with an object value as it will cause unnecessary Re-renders of the child component.
+  // Expect similar behavior from functions, jsx, or lists
   const [countState, setCountState] = useState<CountState>({ count: 0 });
 
   console.log("parent render");
+  const totalRenders = useRef(0);
+  totalRenders.current++;
 
   const handleIncrementCount = useCallback(() => {
     const newCountState: CountState = { count: countState.count + 1 };
@@ -29,14 +33,17 @@ export const UseStateWithObject = () => {
   return (
     <Container>
       <Description descriptionText={descriptionText} />
-      <ChildComponent countState={countState} />
-      <ButtonContainer>
-        <Button label="Increment Count" onClick={handleIncrementCount} />
-      </ButtonContainer>
+      <SectionContainer>
+        <ChildComponent countState={countState} />
+        <DisplayCount>{`Parent Render Count: ${totalRenders.current}`}</DisplayCount>
+        <ButtonContainer>
+          <Button label="Increment Count" onClick={handleIncrementCount} />
+        </ButtonContainer>
 
-      <ButtonContainer>
-        <Button label="Same Count" onClick={handleSetStateWithSameCount} />
-      </ButtonContainer>
+        <ButtonContainer>
+          <Button label="Same Count" onClick={handleSetStateWithSameCount} />
+        </ButtonContainer>
+      </SectionContainer>
     </Container>
   );
 };
@@ -49,8 +56,15 @@ const ChildComponent = (props: ChildProps) => {
   const { countState } = props;
 
   console.log("child render");
+  const totalRenders = useRef(0);
+  totalRenders.current++;
 
-  return <DisplayCount>{countState.count}</DisplayCount>;
+  return (
+    <Container>
+        <DisplayCount>{`Child Render Count: ${totalRenders.current}`}</DisplayCount>
+        <DisplayCount>{`Count: ${countState.count}`}</DisplayCount>
+    </Container>
+  )
 };
 
 const Container = styled.div`

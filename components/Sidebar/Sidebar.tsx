@@ -89,4 +89,6 @@ const SidebarItemContainer = styled.div<{ selected?: boolean }>`
     }
 
     cursor: pointer;
+
+    user-select: none;
 `

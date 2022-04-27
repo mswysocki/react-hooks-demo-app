@@ -13,18 +13,18 @@ export const PassingProps = () => {
     setUselessState({});
   }, [setUselessState]);
 
-  // you should useRef when declaring objects to pass as Props
+  // This object is re-defined every render pass
   const newObject = { value: 1 };
 
-  // You should useRef to avoid creating a new list each render pass
+  // This list is re-defined every render pass
   const newList = [1];
 
-  // You should useCallack when declaring functions
+  // This function is re-defined every render pass
   const newFunction = () => {
     return 1;
   };
 
-  // You should useRef to avoid creating new JSX on each render pass
+  // This JSX is re-defined every render pass
   const newJSX = <div>1</div>;
 
   return (

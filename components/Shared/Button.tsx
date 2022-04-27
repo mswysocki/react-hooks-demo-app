@@ -41,4 +41,6 @@ const ButtonContainer = styled.div`
     &:active {
         filter: brightness(90%);
     }
+
+    user-select: none;
 `
