@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
+import { Display } from '../Shared/Display'
+import { SectionContainer } from '../Shared/Section'
 
 export const PassingPropsFixed = () => {
   console.log("parent render");
@@ -26,7 +28,7 @@ export const PassingPropsFixed = () => {
   const newJSX = useRef(<div>1</div>)
 
   return (
-    <Container>
+    <SectionContainer>
       <ObjectComponent object={newObject.current} />
       <ListComponent list={newList.current} />
       <FunctionComponent fun={newFunction} />
@@ -34,7 +36,7 @@ export const PassingPropsFixed = () => {
       <ButtonContainer>
         <Button label={"Re-render"} onClick={handleClickRerender} />
       </ButtonContainer>
-    </Container>
+    </SectionContainer>
   );
 };
 
@@ -45,9 +47,10 @@ type ObjectComponentProps = {
 const ObjectComponent = React.memo((props: ObjectComponentProps) => {
   console.log("Object component render");
 
-  return (
-    <div />
-  )
+  const totalRenders = useRef(0);
+  totalRenders.current++;
+
+  return <Display>{`Render count: ${totalRenders.current}`}</Display>;
 });
 ObjectComponent.displayName = 'ObjectComponent'
 
@@ -58,7 +61,10 @@ type ListComponentProps = {
 const ListComponent = React.memo((props: ListComponentProps) => {
   console.log("List Component render");
 
-  return <div />;
+  const totalRenders = useRef(0);
+  totalRenders.current++;
+
+  return <Display>{`Render count: ${totalRenders.current}`}</Display>;
 })
 ListComponent.displayName = 'ListComponent'
 
@@ -69,7 +75,10 @@ type FunctionComponentProps = {
 const FunctionComponent = React.memo((props: FunctionComponentProps) => {
   console.log("Function component render");
 
-  return <div />;
+  const totalRenders = useRef(0);
+  totalRenders.current++;
+
+  return <Display>{`Render count: ${totalRenders.current}`}</Display>;
 })
 FunctionComponent.displayName = 'FunctionComponent'
 
@@ -80,11 +89,12 @@ type JsxComponentProps = {
 const JSXComponent = React.memo((props: JsxComponentProps) => {
   console.log("JSX Component render");
 
-  return <div />;
+  const totalRenders = useRef(0);
+  totalRenders.current++;
+
+  return <Display>{`Render count: ${totalRenders.current}`}</Display>;
 })
 JSXComponent.displayName = 'JSXComponent'
-
-const Container = styled.div``;
 
 const ButtonContainer = styled.div`
   margin: 24px;

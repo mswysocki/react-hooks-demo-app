@@ -4,7 +4,9 @@ import { Introduction } from '../components/PlaygroundModules/Introduction'
 import { PassingProps } from '../components/PlaygroundModules/PassingProps'
 import { PassingPropsFixed } from '../components/PlaygroundModules/PassingPropsFixed'
 import { ThinkingAboutPerformance } from '../components/PlaygroundModules/ThinkingAboutPerformance'
+import { UseMemoChaning } from '../components/PlaygroundModules/UseMemoChaining'
 import { UseStateWithObject } from '../components/PlaygroundModules/UseStateWithObject'
+import { WhyUseUseMemo } from '../components/PlaygroundModules/WhyUseUseMemo'
 
 // Talk about the presentation
 
@@ -18,8 +20,8 @@ export type SidebarModule =
 'Basic useState' | 
 'useState with Object' | 
 'Why use useMemo' |
-'useMemo usage' | 
 'useMemo chaining' |
+'useRef' |
 'Why use useCallback' |
 'useCallback usage' |
 'onClick functions in lists' | 
@@ -33,8 +35,8 @@ export const sidebarModules: SidebarModule[] = [
     'Basic useState',
     'useState with Object',
     'Why use useMemo',
-    'useMemo usage',
     'useMemo chaining',
+    'useRef',
     'Why use useCallback',
     'useCallback usage',
     'onClick functions in lists',
@@ -48,9 +50,9 @@ export const moduleMap: { [key: string]: JSX.Element} = {
     'Thinking about Performance': <ThinkingAboutPerformance/>,
     'Basic useState': <BasicUseState />,
     'useState with Object': <UseStateWithObject />,
-    'Why use useMemo': <div/>,
-    'useMemo usage': <div/>,
-    'useMemo chaining': <div/>,
+    'Why use useMemo': <WhyUseUseMemo />,
+    'useMemo chaining': <UseMemoChaning />,
+    'useRef': <div/>,
     'Why use useCallback': <div/>,
     'useCallback usage': <div/>,
     'onClick functions in lists': <div/>,

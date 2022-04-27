@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { descriptionBackground } from '../../constants/colors'
+import { sectionBackground } from '../../constants/colors'
 
 type Props = {
     descriptionText: string
@@ -30,5 +30,5 @@ const DescriptionContainer = styled.div`
     width: 100%;
     height: fit-content;
 
-    background: ${descriptionBackground};
+    background: ${sectionBackground};
 `

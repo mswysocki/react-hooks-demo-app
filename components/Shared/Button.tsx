@@ -29,6 +29,7 @@ const ButtonContainer = styled.div`
 
     padding: 16px;
 
+    width: 240px;
 
     color: white;
     background: ${primaryBlue};

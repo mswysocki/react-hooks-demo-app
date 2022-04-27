@@ -9,10 +9,12 @@ export const BasicUseState = () => {
   console.log("parent render");
   const [count, setCount] = useState(0);
 
+  // Increment the count and re-render parent and child
   const incrementCount = useCallback(() => {
     setCount((previous) => previous + 1);
   }, [setCount]);
 
+  // Keeping the count the same does not cause the child component to re-render
   const keepCountSame = useCallback(() => {
     setCount(count);
   }, [count]);

@@ -8,8 +8,9 @@ const introductionDescriptionText = `
     required for all development and hooks are the beest.
 `
 
-export const Introduction = () => {
+export const Introduction = React.memo(() => {
     return (
         <Description descriptionText={introductionDescriptionText} />
     )
-}
+})
+Introduction.displayName = 'Introduction'
