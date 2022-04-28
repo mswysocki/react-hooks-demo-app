@@ -24,8 +24,6 @@ export const PassingPropsFixed = () => {
   // Updating the reference will not cause a re-render
   const newObject = useRef({ value: 1 });
 
-  //console
-
   // You should useCallback when declaring functions
   const newFunction = useCallback(() => {
     return 1;

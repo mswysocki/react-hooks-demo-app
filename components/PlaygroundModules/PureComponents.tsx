@@ -57,6 +57,9 @@ const BasicExample = () => {
 };
 
 // With pure components, the props are checked with a shallow equal to see if they need to be re-rendered
+// There is small overhead to using a shallow equal. 
+// Should only be used when the component will render exactly the same if props change.
+// Dynamically sized components, as an example, probably should not be wrapped in React.memo
 const PureComponentExample = () => {
   console.log("Pure Component Example Parent Render");
   const totalRenders = useRef(0);
