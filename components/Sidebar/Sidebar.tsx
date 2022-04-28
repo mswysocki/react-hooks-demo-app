@@ -64,7 +64,7 @@ const SidebarContainer = styled.div`
 
     height: 100%;
 
-    overflowY: scroll;
+    overflow: scroll;
 
     background: ${sidebarBackground};
 `
