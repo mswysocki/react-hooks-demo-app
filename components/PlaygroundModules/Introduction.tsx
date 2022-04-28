@@ -1,16 +1,23 @@
+import styled from '@emotion/styled'
 import React from 'react'
-import { Description } from '../Shared/Description'
+import { Display } from '../Shared/Display'
+import { SectionContainer } from '../Shared/Section'
 
-const introductionDescriptionText = `
-    This is a long block of text that is going to describe the demo and each module click into 
-    the different items on the sidebar and checgk out to see if the console log seeing when things 
-    re-render or not. Also hooks are totally awesome and everyone should use them. Hooks should be
-    required for all development and hooks are the beest.
-`
 
 export const Introduction = React.memo(() => {
     return (
-        <Description descriptionText={introductionDescriptionText} />
+        <SectionContainer>
+            <Display>Goals</Display>
+            <ParagraphDisplay>- Establish strong fundamental understanding of common React hooks</ParagraphDisplay>
+            <ParagraphDisplay>- Understand common performance pitfalls with React hooks</ParagraphDisplay>
+            <ParagraphDisplay>- Be able to confidently apply React hooks to write high performance code and build product quickly</ParagraphDisplay>
+        </SectionContainer>
     )
 })
 Introduction.displayName = 'Introduction'
+
+export const ParagraphDisplay = styled.div`
+  font-size: 24px;
+
+  line-height: 30px;
+`;

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
 import { Container } from "../Shared/Container";
+import { Description } from "../Shared/Description";
 import { Display } from "../Shared/Display";
 import { SectionContainer } from "../Shared/Section";
 
@@ -13,11 +14,12 @@ the reference between renders keeps the props from changing, React still will re
 if passing in the exact same object! To resolve this, we can wrap components in React.memo() to create pure component
 as long as the exact same component will be rendered when the props change. The higher order component performs a
 shallow equal operation on the props to determine if the component should be re-rendered or not. Click the buttons
-to observe how each example renders.`
+to observe how each example renders.`;
 
 export const PureComponents = () => {
   return (
     <Container>
+      <Description descriptionText={description} />
       <BasicExample />
       <PureComponentExample />
     </Container>

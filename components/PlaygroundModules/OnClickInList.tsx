@@ -2,14 +2,22 @@ import styled from "@emotion/styled";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
 import { Container } from "../Shared/Container";
+import { Description } from "../Shared/Description";
 import { Display } from "../Shared/Display";
 import { SectionContainer } from "../Shared/Section";
+
+const description = `Having a list of elements that are rendered in a 'map' function is a pattern I've used quite a bit.
+This section demonstrates a pattern where a list of items are rendered only once even when a function is passed in with
+a unique parameter for each element. Try clicking the buttons in each section and check out when the buttons are
+re-rendering.
+`;
 
 const listItems = [1, 2, 3, 4];
 
 export const OnClickInList = () => {
   return (
     <Container>
+      <Description descriptionText={description} />
       <BadPatternSection />
       <GoodPatternSection />
     </Container>
@@ -53,11 +61,7 @@ const GoodPatternSection = () => {
       <Display>{`Selected Item: ${selectedItem}`}</Display>
       {listItems.map((value) => {
         return (
-          <ListItem
-            key={value}
-            value={value}
-            onClick={handleSelectItem}
-          />
+          <ListItem key={value} value={value} onClick={handleSelectItem} />
         );
       })}
     </SectionContainer>
@@ -86,20 +90,20 @@ const ListItem = React.memo((props: ListItemProps) => {
       <Button label={`Select ${value}`} onClick={handleItemClick} />
     </ItemContainer>
   );
-})
-ListItem.displayName = 'ListItem'
+});
+ListItem.displayName = "ListItem";
 
 type ButtonProps = {
-    label: string
-    onClick: () => void
-}
+  label: string;
+  onClick: () => void;
+};
 
 const RenderAwareButton = (props: ButtonProps) => {
-    const { label, onClick } = props
-    console.log('Button Render')
+  const { label, onClick } = props;
+  console.log("Button Render");
 
-    return <Button label={label} onClick={onClick} />
-}
+  return <Button label={label} onClick={onClick} />;
+};
 
 const ItemContainer = styled.div`
   display: flex;

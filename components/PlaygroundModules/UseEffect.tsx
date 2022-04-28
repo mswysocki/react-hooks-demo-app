@@ -1,12 +1,18 @@
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { Container } from '../Shared/Container'
+import { Description } from '../Shared/Description'
 import { Display } from '../Shared/Display'
 import { SectionContainer } from '../Shared/Section'
+
+const description = `This example demonstrates some different usages of useEffect. useEffect can trigger side effects onMount, 
+onUnmount, on each render pass, and when props or state values are updated. The first example creates a key stroke listener on
+mount and updates the state with the keystroke. The second example updates the title of the page based up on the input value.`
 
 export const UseEffectExample = () => {
 
     return (
         <Container>
+            <Description descriptionText={description} />
             <MountUnmountExample />
             <SideEffect />
         </Container>
@@ -66,6 +72,3 @@ const SideEffect = () => {
         </SectionContainer>
     )
 }
-
-
-

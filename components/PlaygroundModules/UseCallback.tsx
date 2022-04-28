@@ -2,12 +2,17 @@ import styled from "@emotion/styled";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
 import { Container } from "../Shared/Container";
+import { Description } from '../Shared/Description'
 import { Display } from "../Shared/Display";
 import { SectionContainer } from "../Shared/Section";
+
+const description = `Basically anytime you declare a function within a React component, you should declare it with useCallback. This will help reduce unnecessary rendering. 
+Check out the examples below where a function is declared with and without useCallback and see how the child component is re-rendering when it does not need to.`
 
 export const UseCallback = () => {
   return (
     <Container>
+        <Description descriptionText={description} />
       <BadPatternSection />
       <GoodPatternSection />
     </Container>
