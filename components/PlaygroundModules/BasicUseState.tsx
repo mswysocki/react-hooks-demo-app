@@ -1,10 +1,15 @@
 import styled from "@emotion/styled/";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
+import { Container } from "../Shared/Container";
 import { Description } from "../Shared/Description";
 import { SectionContainer } from "../Shared/Section";
 
-const descriptionText = ``;
+const descriptionText = `In the component below, the useState hook is used to 
+keep track of a count. The state is saved across renders and is initialized to 0 on
+initial mount. When the component is unmounted the state will be lost. Click the increment
+button for the count to be incremented. Open the console and check which components 
+re-render when the 'Increment' button is clicked and when the 'Same Count' button is clicked.`;
 
 export const BasicUseState = () => {
   console.log("parent render");
@@ -59,11 +64,6 @@ const ChildComponent = (props: ChildProps) => {
     </Container>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 const DisplayCount = styled.div`
   font-size: 48px;

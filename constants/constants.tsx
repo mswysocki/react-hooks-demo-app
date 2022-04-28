@@ -1,11 +1,13 @@
 import React from 'react'
 import { BasicUseState } from '../components/PlaygroundModules/BasicUseState'
 import { Introduction } from '../components/PlaygroundModules/Introduction'
+import { OnClickInList } from '../components/PlaygroundModules/onClickInList'
 import { PassingProps } from '../components/PlaygroundModules/PassingProps'
 import { PassingPropsFixed } from '../components/PlaygroundModules/PassingPropsFixed'
 import { PureComponents } from '../components/PlaygroundModules/PureComponents'
 import { ThinkingAboutPerformance } from '../components/PlaygroundModules/ThinkingAboutPerformance'
 import { UseCallback } from '../components/PlaygroundModules/UseCallback'
+import { UseEffectExample } from '../components/PlaygroundModules/UseEffect'
 import { UseMemoChaning } from '../components/PlaygroundModules/UseMemoChaining'
 import { UseRefUsage } from '../components/PlaygroundModules/UseRefUsage'
 import { UseStateWithObject } from '../components/PlaygroundModules/UseStateWithObject'
@@ -52,8 +54,8 @@ export const moduleMap: { [key: string]: JSX.Element} = {
     'Pure Components' : <PureComponents />, 
     'useRef Usage': <UseRefUsage />,
     'Why use useCallback': <UseCallback />,
-    'onClick functions in lists': <div/>,
-    'useEffect': <div/>,
+    'onClick functions in lists': <OnClickInList />,
+    'useEffect': <UseEffectExample />,
     'Passing Props': <PassingProps />,
     'Passing Props Fixed': <PassingPropsFixed />
 

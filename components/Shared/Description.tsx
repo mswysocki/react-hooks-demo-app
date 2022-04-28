@@ -27,7 +27,6 @@ const DescriptionContainer = styled.div`
 
     border-radius: 16px;
 
-    width: 100%;
     height: fit-content;
 
     font-size: 18px;

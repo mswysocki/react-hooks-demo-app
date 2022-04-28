@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
-import React, { useCallback, useContext, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
+import { Container } from "../Shared/Container";
 import { Description } from "../Shared/Description";
 import { SectionContainer } from "../Shared/Section";
 
-const descriptionText = ``;
+const descriptionText = `This example is very similar to the previous example. Instead, when using the useState hook,
+the state is stored in an object. Generally this is a bad pattern as passing objects around often causes child 
+components to unnecessarily re-render. Open the console and see when components are re-rendering.`;
 
 type CountState = {
   count: number;
@@ -66,12 +69,6 @@ const ChildComponent = (props: ChildProps) => {
     </Container>
   )
 };
-
-const Container = styled.div`
-  display: flex;
-
-  flex-direction: column;
-`;
 
 const DisplayCount = styled.div`
   font-size: 48px;

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
+import { Container } from "../Shared/Container";
 import { Display } from "../Shared/Display";
 import { SectionContainer } from "../Shared/Section";
 
@@ -69,5 +70,3 @@ const ChildComponent = (props: ChildProps) => {
 };
 
 const PureComponentChild = React.memo(ChildComponent)
-
-const Container = styled.div``;

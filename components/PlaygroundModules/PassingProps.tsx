@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import React, { useCallback, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
+import { Container } from "../Shared/Container";
 import { Display } from "../Shared/Display";
-import { SectionContainer } from '../Shared/Section'
+import { SectionContainer } from "../Shared/Section";
 
 export const PassingProps = () => {
   console.log("parent render");
@@ -28,15 +29,17 @@ export const PassingProps = () => {
   const newJSX = <div>1</div>;
 
   return (
-    <SectionContainer>
-      <ObjectComponent object={newObject} />
-      <ListComponent list={newList} />
-      <FunctionComponent fun={newFunction} />
-      <JSXComponent jsx={newJSX} />
-      <ButtonContainer>
-        <Button label={"Re-render"} onClick={handleClickRerender} />
-      </ButtonContainer>
-    </SectionContainer>
+    <Container>
+      <SectionContainer>
+        <ObjectComponent object={newObject} />
+        <ListComponent list={newList} />
+        <FunctionComponent fun={newFunction} />
+        <JSXComponent jsx={newJSX} />
+        <ButtonContainer>
+          <Button label={"Re-render"} onClick={handleClickRerender} />
+        </ButtonContainer>
+      </SectionContainer>
+    </Container>
   );
 };
 

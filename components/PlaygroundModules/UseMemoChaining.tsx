@@ -1,12 +1,18 @@
-import styled from "@emotion/styled";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { Button } from "../Shared/Button";
+import { Container } from "../Shared/Container";
+import { Description } from "../Shared/Description";
 import { Display } from "../Shared/Display";
 import { SectionContainer } from "../Shared/Section";
+
+const description = `This is an experiment that shows if we're memoizing multiple values in the component
+that are dependent on each other, it will still only cause a single render pass. The functionality is no
+different from calculating all 3 values in a single useMemo function.`
 
 export const UseMemoChaning = () => {
   return (
     <Container>
+      <Description descriptionText={description} />
       <ChainPatternSection />
       <CombinedPatternSection />
     </Container>
@@ -78,7 +84,7 @@ const CombinedPatternSection = () => {
   totalRenders.current++;
 
   const handleClickIncrementValue = useCallback(() => {
-    setInitialValue(previous => previous + 1);
+    setInitialValue((previous) => previous + 1);
   }, []);
 
   const { memoizedValue1, memoizedValue2, memoizedValue3 } = useMemo(() => {
@@ -110,9 +116,9 @@ const CombinedPatternSection = () => {
     }
 
     return {
-        memoizedValue1: hardToCompute, 
-        memoizedValue2: hardToCompute2, 
-        memoizedValue3: hardToCompute3, 
+      memoizedValue1: hardToCompute,
+      memoizedValue2: hardToCompute2,
+      memoizedValue3: hardToCompute3,
     };
   }, [initialValue]);
 
@@ -127,12 +133,3 @@ const CombinedPatternSection = () => {
     </SectionContainer>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-`;
-
-

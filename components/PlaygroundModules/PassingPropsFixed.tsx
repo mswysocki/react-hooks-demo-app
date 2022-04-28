@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Button } from "../Shared/Button";
+import { Container } from "../Shared/Container";
 import { Display } from "../Shared/Display";
 import { SectionContainer } from "../Shared/Section";
 
@@ -8,7 +14,7 @@ export const PassingPropsFixed = () => {
   console.log("parent render");
 
   const [_, setUselessState] = useState<Object>({});
-  const [exampleMemoDependency, __] = useState(1)
+  const [exampleMemoDependency, __] = useState(1);
 
   const handleClickRerender = useCallback(() => {
     setUselessState({});
@@ -30,15 +36,17 @@ export const PassingPropsFixed = () => {
   }, [exampleMemoDependency]);
 
   return (
-    <SectionContainer>
-      <ObjectComponent object={newObject.current} />
-      <ListComponent list={newList} />
-      <FunctionComponent fun={newFunction} />
-      <JSXComponent jsx={newJSX} />
-      <ButtonContainer>
-        <Button label={"Re-render"} onClick={handleClickRerender} />
-      </ButtonContainer>
-    </SectionContainer>
+    <Container>
+      <SectionContainer>
+        <ObjectComponent object={newObject.current} />
+        <ListComponent list={newList} />
+        <FunctionComponent fun={newFunction} />
+        <JSXComponent jsx={newJSX} />
+        <ButtonContainer>
+          <Button label={"Re-render"} onClick={handleClickRerender} />
+        </ButtonContainer>
+      </SectionContainer>
+    </Container>
   );
 };
 
